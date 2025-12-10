@@ -374,6 +374,7 @@ if __name__ == "__main__":
 
     elif INPUT == "openephys":
         # get blocks/experiments and streams info
+        logging.info(f"going with openephys")
         openephys_folders = [p for p in data_folder.iterdir() if p.is_dir()]
         if len(openephys_folders) == 0:
             raise Exception("No valid Open Ephys folder found.")
@@ -464,6 +465,7 @@ if __name__ == "__main__":
                     recording_dict[(session_name, recording_name)]["raw"] = recording
 
     elif INPUT == "spikeinterface":
+        logging.info(f"going with spikeinterface")
         from spikeinterface.extractors import recording_extractor_full_dict
         from spikeinterface.extractors.neoextractors import neo_recording_class_dict
         from probeinterface import read_probeinterface
